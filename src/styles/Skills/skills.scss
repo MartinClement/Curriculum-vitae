@@ -1,0 +1,61 @@
+@import '../mixins';
+
+.skills-wrapper {
+  width: 200px;
+  height: 100%;
+  position: relative;
+  padding-top: 60px;
+  flex-direction: column;
+  background: $color-grey;
+
+  .skills-circle-wrapper {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+
+    .skill-circle {
+      flex-direction: column;
+      margin: $space-normal 0;
+      align-items: center;
+      width: 50%;
+
+      .skill-circle-img {
+        width: 60px;
+        height: 60px;
+        // padding: $space-normal;
+        display: block;
+        border-radius: 50%;
+        margin-bottom: $space-small;
+        background: $color-grey;
+        // border: 2px solid $color-grey-light;
+        box-shadow: -5px 10px 10px $color-grey-dark;
+      }
+
+      .skill-circle-desc {
+        font-size: $fs-small;
+      }
+    }
+  }
+
+  .skills-bar-wrapper {
+    flex-direction: column;
+    padding: $space-large;
+
+    .skill-bar {
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: $space-normal;
+
+      .skill-bar-label {
+        font-size: $fs-normal;
+      }
+
+      .skill-bar-img {
+        height: 25px;
+        width: 25px;
+        margin-right: $space-normal;
+      }
+    }
+  }
+}

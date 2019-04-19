@@ -1,0 +1,24 @@
+@import '../mixins';
+
+.contact-wrapper {
+  padding: $space-normal;
+  background-color: $color-grey;
+  font-size: $fs-normal;
+  height: 40px;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: $space-normal;
+  .green {
+    color: $color-green;
+  }
+  .purple {
+    color: $color-purple;
+  }
+  .blue {
+    color: $color-blue;
+  }
+  .white {
+    color: $color-white;
+  }
+}

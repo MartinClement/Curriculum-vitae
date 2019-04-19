@@ -1,0 +1,23 @@
+@import '../mixins';
+
+.content-wrapper {
+  flex-direction: row;
+  height: 100%;
+  flex-grow: 1;
+  overflow-y: scroll;
+  background: $color-grey;
+
+  .content-body {
+    flex-grow: 1;
+    flex-direction: column;
+    padding: $space-large;
+    background: $color-white;
+    height: fit-content;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+}

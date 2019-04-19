@@ -1,0 +1,9 @@
+@import '../mixins';
+
+.app-wrapper {
+  height: 100vh;
+  min-height: 100%;
+  width: 100%;
+  flex-direction: column;
+  background: $color-grey;
+}

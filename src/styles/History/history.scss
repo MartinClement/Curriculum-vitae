@@ -1,0 +1,83 @@
+@import '../mixins';
+
+.history-wrapper {
+  flex-grow: 1;
+  flex-direction: column;
+
+  .fact-wrapper {
+    flex-direction: column;
+    margin: $space-large;
+
+    .fact-label {
+      color: $color-grey;
+      font-size: $fs-xbig;
+    }
+
+    .fact-infos {
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: $space-normal;
+      .fact-infos-socity-name {
+        color: $color-purple;
+        font-weight: 600;
+        margin-right: $space-normal;
+      }
+
+      .fact-infos-dates {
+        color: $color-blue;
+        font-size: $fs-small;
+        margin: $space-small 0;
+
+        .date-arrow {
+          color: $color-green;
+          margin: 0 $space-small;
+        }
+      }
+    }
+
+    .fact-desc-wrapper {
+      flex-direction: row;
+      align-items: start;
+      margin-bottom: $space-normal;
+
+      .fact-socity-img {
+        width: 50px;
+        height: 50px;
+        padding: $space-small;
+        background: white;
+        border-radius: 5px 0 0 5px;
+        // border-left: 1px solid $color-grey-light;
+        // border-top: 1px solid $color-grey-light;
+        // border-bottom: 1px solid $color-grey-light;
+        // border-right: none;
+        position: relative;
+        left: 1px;
+      }
+
+      .fact-desc-infos {
+        align-items: start;
+        flex-grow: 1;
+        background: white;
+        border-radius: 0 5px 5px 5px;
+        padding: 17px $space-normal;
+        min-height: 50px;
+        flex-direction: column;
+
+        .fact-desc-text {
+          color: $color-grey-light;
+          margin-bottom: $space-normal;
+        }
+
+        .fact-desc-technos {
+          flex-direction: row;
+          margin-top: $space-normal;
+
+          img {
+            height: 20px;
+            margin-right: $space-normal;
+          }
+        }
+      }
+    }
+  }
+}
