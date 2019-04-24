@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "react": "^16.8.6",
     "react-circular-progressbar": "^1.0.0",
     "react-dom": "^16.8.6",
+    "react-fade-in": "^0.1.6",
     "react-typing": "^1.0.0",
     "url-loader": "^1.1.2",
     "webpack-cli": "^3.3.0",
@@ -31,6 +33,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.1",

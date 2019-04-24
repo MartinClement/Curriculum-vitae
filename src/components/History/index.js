@@ -15,16 +15,27 @@ const Facts = [
     label: 'Mastère 2 Alternance - Informatique et système de gestion',
     dates: { start: '01/09/2018', stop: '31/08/2019' },
     socity: { name: 'LiveMon', img: require('assets/images/logos/livemon.jpg') },
-    desc:
-      '12 mois en tant que développeur front. Intégration des mockups pour le website et développement des features pour le dashboard',
+    desc: '12 mois en tant que développeur front. ( Ecole IPSSI Paris )',
+    bulletPoints: [
+      'Intégration des mockups pour le dashboard',
+      'Intégration des mockups pour le website',
+      'Refonte responsive du website',
+      'Développement des features pour le dashboard',
+    ],
     technos: [Icons.javascript, Icons.react, Icons.nodejs],
   },
   {
-    label: 'Master 1 Alternance - Developpement web,mobile et logiciel',
+    label: 'Master 1 Alternance - Développement web,mobile et logiciel',
     dates: { start: '01/09/2017', stop: '31/08/2018' },
     socity: { name: 'Pandacraft', img: require('assets/images/logos/pandacraft.png') },
-    desc:
-      '12 mois en tant développeur fullstack. Développement et intégration des modules pour la plateforme e-commerce',
+    desc: '12 mois en tant développeur fullstack. ( Ecole IPSSI Paris )',
+    bulletPoints: [
+      'Développement des modules magento pour la plateforme e-commerce',
+      'Intégration des visuels pour les partenarias',
+      'Synchronisation du catalogue de produit avec un gestionnaire de flux ( synchronisation Facebook, Amazon )',
+      'Responssable technique emailing (Bronto)',
+      'responssable parc informatique',
+    ],
     technos: [Icons.magento, Icons.php, Icons.javascript],
   },
   {
@@ -32,6 +43,7 @@ const Facts = [
     dates: { start: '2017', stop: '2018' },
     socity: { name: 'Faculté de Caen Normandie', img: require('assets/images/logos/unicaen.png') },
     desc: 'Licence 3 parcour professionel spécialité développement web',
+    bulletPoints: [],
     technos: [],
   },
   {
@@ -40,37 +52,89 @@ const Facts = [
     socity: { name: 'Faculté de Caen Normandie', img: require('assets/images/logos/unicaen.png') },
     desc:
       'Licence 1 et licence 2 informatique parcour classiques, options web et traitement automatique des langues',
+    bulletPoints: [],
     technos: [],
   },
 ]
 
-const Fact = ({ fact }) => (
-  <div className="fact-wrapper">
-    <div className="fact-label">{fact.label}</div>
-    <div className="fact-infos">
-      <div className="fact-infos-socity-name">{fact.socity.name}</div>
-      <div className="fact-infos-dates">
-        {fact.dates.start}
-        <span className="date-arrow">-></span>
-        {fact.dates.stop}
-      </div>
-    </div>
-    <div className="fact-desc-wrapper">
-      <img className="fact-socity-img" src={fact.socity.img} />
-      <div
-        className="fact-desc-infos"
-        style={{ ...(!fact.technos.length ? { justifyContent: 'center', padding: '0 10px' } : {}) }}
-      >
-        <div className="fact-desc-text" style={{ ...(!fact.technos.length ? { margin: 0 } : {}) }}>
-          {fact.desc}
+class Fact extends React.Component {
+  _root = undefined
+  _facts = null
+  _IO = undefined
+
+  componentDidMount = () => {
+    this._root = document.querySelector('#app')
+    this._facts = document.querySelectorAll('.fact-desc-wrapper')
+
+    if (this._root && this._facts) {
+      const options = {
+        root: this._root,
+        rootMargin: '0px',
+        threshold: 0.2,
+      }
+
+      this._IO = new IntersectionObserver(this.handleFadeIn, options)
+      this._facts.forEach(fact => this._IO.observe(fact))
+    }
+  }
+
+  handleFadeIn = (entries, observer) => {
+    entries.forEach(el => {
+      console.log(el)
+      if (el.isIntersecting) {
+        el.target.style.opacity = 1
+      }
+    })
+  }
+
+  render() {
+    const { fact } = this.props
+
+    return (
+      <div className="fact-wrapper">
+        <div className="fact-label">{fact.label}</div>
+        <div className="fact-infos">
+          <div className="fact-infos-socity-name">{fact.socity.name}</div>
+          <div className="fact-infos-dates">
+            {fact.dates.start}
+            <span className="date-arrow">-></span>
+            {fact.dates.stop}
+          </div>
         </div>
-        <div className="fact-desc-technos">
-          {fact.technos.length !== 0 && fact.technos.map(t => <img src={t} />)}
+        <div className="fact-desc-wrapper">
+          <img className="fact-socity-img" src={fact.socity.img} />
+          <div
+            className="fact-desc-infos"
+            style={{
+              ...(!fact.technos.length > 0 ? { justifyContent: 'center', padding: '0 10px' } : {}),
+            }}
+          >
+            <div
+              className="fact-desc-text"
+              style={{ ...(!fact.technos.length > 0 ? { margin: 0, padding: '5px 0' } : {}) }}
+            >
+              {fact.desc}
+            </div>
+            {fact.bulletPoints.length > 0 && (
+              <ul className="fact-desc-bulletpoints">
+                {fact.bulletPoints.map(f => (
+                  <li>{f}</li>
+                ))}
+              </ul>
+            )}
+            {fact.technos.length > 0 && (
+              <div className="fact-desc-technos">
+                {fact.technos.map(t => (
+                  <img src={t} />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-)
+    )
+  }
+}
 
 const History = () => (
   <div className="history-wrapper">

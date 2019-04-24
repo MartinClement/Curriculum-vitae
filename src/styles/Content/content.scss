@@ -5,10 +5,11 @@
   height: 100%;
   flex-grow: 1;
   overflow-y: scroll;
-  background: $color-grey;
+  background: $color-white;
 
   .content-body {
     flex-grow: 1;
+    margin-left: 200px;
     flex-direction: column;
     padding: $space-large;
     background: $color-white;
@@ -16,8 +17,13 @@
   }
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: $mobile) {
   .content-wrapper {
     flex-direction: column;
+
+    .content-body {
+      margin-left: 0;
+      padding: $space-large $space-normal;
+    }
   }
 }

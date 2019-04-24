@@ -1,12 +1,12 @@
 // Colors
 
 $color-white: #f0f0f0;
-$color-grey-dark: #121212;
-$color-grey: #212121;
-$color-grey-light: #424242;
-$color-green: #61f489;
-$color-purple: #925bff;
-$color-blue: #59d2fe;
+$color-grey-dark: #182628;
+$color-grey: #474b4f;
+$color-grey-light: #6b6e70;
+$color-green: #86c232;
+$color-purple: #8860d0;
+$color-blue: #1b9ce5;
 
 // Font-size:
 
@@ -20,3 +20,8 @@ $fs-xxbig: 32px;
 $space-small: 5px;
 $space-normal: 10px;
 $space-large: 20px;
+
+// BreakPoints
+$mobile: 768px;
+$tablet: 979px;
+$desktop: 1400px;

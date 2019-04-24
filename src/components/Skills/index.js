@@ -1,5 +1,6 @@
 import React from 'react'
 import CircularProgressbar from 'react-circular-progressbar'
+import FadeIn from 'react-fade-in'
 
 import 'styles/Skills/skills.scss'
 
@@ -54,6 +55,7 @@ const SkillList = {
       img: require('assets/images/logos/creativesuite.jpg'),
     },
   ],
+  word: ['MySQL', 'NoSQL', 'Python', 'Haskell', 'MongoDB', 'MacOS', 'Windows', 'Linux'],
 }
 
 const SkillCircle = ({ skill }) => (
@@ -81,6 +83,11 @@ const Skills = () => (
     <div className="skills-bar-wrapper">
       {SkillList.bar.map(skill => (
         <SkillBar skill={skill} />
+      ))}
+    </div>
+    <div className="skills-word-wrapper">
+      {SkillList.word.map(skill => (
+        <span className="skill-word">{`${skill}, `}</span>
       ))}
     </div>
   </div>

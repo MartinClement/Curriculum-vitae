@@ -2,13 +2,32 @@
 
 .contact-wrapper {
   padding: $space-normal;
-  background-color: $color-grey;
+  background-color: $color-grey-dark;
   font-size: $fs-normal;
   height: 40px;
   flex-direction: row;
   align-items: center;
   border-radius: 10px;
+  position: relative;
   margin-bottom: $space-normal;
+
+  .github {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 8px;
+    right: 8px;
+
+    img {
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  .mobile-br {
+    display: none;
+  }
+
   .green {
     color: $color-green;
   }
@@ -20,5 +39,20 @@
   }
   .white {
     color: $color-white;
+  }
+}
+
+@media all and (max-width: $mobile) {
+  .contact-wrapper {
+    height: fit-content;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .mobile-block {
+      margin-left: $space-large;
+    }
+    .mobile-br {
+      display: block;
+    }
   }
 }

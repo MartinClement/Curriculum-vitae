@@ -2,8 +2,9 @@
 
 .skills-wrapper {
   width: 200px;
+  min-width: 200px;
   height: 100%;
-  position: relative;
+  position: fixed;
   padding-top: 60px;
   flex-direction: column;
   background: $color-grey;
@@ -23,13 +24,13 @@
       .skill-circle-img {
         width: 60px;
         height: 60px;
-        // padding: $space-normal;
+        //padding: $space-normal;
         display: block;
         border-radius: 50%;
         margin-bottom: $space-small;
-        background: $color-grey;
-        // border: 2px solid $color-grey-light;
-        box-shadow: -5px 10px 10px $color-grey-dark;
+        background: $color-grey-dark;
+        // border: 8px solid $color-grey-dark;
+        // box-shadow: -5px 10px 10px $color-grey-dark;
       }
 
       .skill-circle-desc {
@@ -56,6 +57,51 @@
         width: 25px;
         margin-right: $space-normal;
       }
+    }
+  }
+
+  .skills-word-wrapper {
+    font-size: $fs-small;
+    padding: $space-normal;
+    flex-wrap: wrap;
+
+    .skill-word:not(first-child) {
+      margin-left: $space-small;
+    }
+  }
+}
+
+@media all and (max-width: $mobile) {
+  .skills-wrapper {
+    width: 100%;
+    min-width: none;
+    height: fit-content;
+    position: initial;
+    padding-top: $space-normal;
+
+    .skills-circle-wrapper {
+      padding: $space-normal;
+
+      .skill-circle {
+        flex-direction: column;
+        margin: 0 $space-normal $space-normal 0;
+        align-items: center;
+        width: fit-content;
+      }
+    }
+
+    .skills-bar-wrapper {
+      flex-direction: row;
+      margin-top: $space-large;
+      padding: 0;
+
+      .skill-bar {
+        margin: 0 $space-normal;
+      }
+    }
+
+    .skills-word-wrapper {
+      margin-top: $space-normal;
     }
   }
 }
