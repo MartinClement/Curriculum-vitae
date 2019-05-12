@@ -9,7 +9,7 @@
   padding: $space-large;
   position: relative;
   // border-bottom: 1px solid $color-grey-light;
-  background-color: $color-grey-light;
+  background-color: $color-grey-dark;
 
   .me {
     height: 120px;
@@ -20,7 +20,11 @@
     position: absolute;
     top: 10px;
     left: 40px;
-    border: 2px solid $color-grey-light;
+    border: 2px solid $color-grey-dark;
+  }
+
+  .mobile-br {
+    display: none;
   }
 
   .header-title {
@@ -41,6 +45,20 @@
       .green {
         color: $color-green;
       }
+    }
+  }
+}
+
+@media all and (max-width: $mobile) {
+  .header-wrapper {
+    justify-content: flex-start;
+
+    .me {
+      display: none;
+    }
+
+    .mobile-br {
+      display: block;
     }
   }
 }
