@@ -35,12 +35,9 @@ jobs:
 
 workflows:
   version: 2
-  tests-build_deploy-prod:
+  build-deploy:
     jobs:
       - tests-build
       - deploy-prod:
         requires:
           - tests-build
-        filters:
-          branches:
-            only: master
