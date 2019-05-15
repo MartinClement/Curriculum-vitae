@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  tests-build:
+    working_directory: ~/Curriculum-vitae
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: Lint the CV
+          command: yarn lint
+      - run:
+        name: Build Prod
+        command: production yarn build
+
+  deploy-prod:
+    steps:
+      - run:
+        name: Deploy on surge
+        command: surge --project ./dist --domain clement-martin.surge.sh
+
+workflows:
+  version: 2
+  test-build-deploy:
+    jobs:
+      - test-build
+      - deploy-prod:
+        requires:
+          - build
+        filters:
+          branches:
+            only: master
