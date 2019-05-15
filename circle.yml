@@ -2,6 +2,8 @@ version: 2
 jobs:
   tests-build:
     working_directory: ~/Curriculum-vitae
+    docker:
+      - image: circleci/node:lastest
     steps:
       - checkout
       - restore_cache:
@@ -24,6 +26,9 @@ jobs:
         command: production yarn build
 
   deploy-prod:
+    working_directory: ~/Curriculum-vitae
+    docker:
+      - image: circleci/node:latest
     steps:
       - run:
         name: Deploy on surge
@@ -33,10 +38,10 @@ workflows:
   version: 2
   tests-build_deploy-prod:
     jobs:
-      # - tests-build
-      - deploy-prod
-        # requires:
-        #   - tests-build
-        # filters:
-        #   branches:
-        #     only: master
+      - tests-build
+      # - deploy-prod
+      #   requires:
+      #     - tests-build
+      #   filters:
+      #     branches:
+      #       only: master
