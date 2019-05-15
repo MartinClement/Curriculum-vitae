@@ -31,7 +31,7 @@ jobs:
 
 workflows:
   version: 2
-  test-build-deploy:
+  tests-build_deploy-prod:
     jobs:
       - tests-build
       - deploy-prod:
