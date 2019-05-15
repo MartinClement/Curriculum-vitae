@@ -38,9 +38,9 @@ workflows:
   tests-build_deploy-prod:
     jobs:
       - tests-build
-      # - deploy-prod
-      #   requires:
-      #     - tests-build
-      #   filters:
-      #     branches:
-      #       only: master
+      - deploy-prod
+        requires:
+          - tests-build
+        filters:
+          branches:
+            only: master
