@@ -24,6 +24,16 @@
     }
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
   .mobile-br {
     display: none;
   }
