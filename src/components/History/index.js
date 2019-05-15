@@ -1,13 +1,12 @@
 import React from 'react'
 
 import 'styles/History/history.scss'
+import { ReactJs, Javascript, NodeJs, Php, Magento, ES6 } from 'logos'
+
+const ICON_SIZE = 20
 
 const Icons = {
-  javascript: require('assets/images/logos/javascript.png'),
   magento: require('assets/images/logos/magento.jpg'),
-  php: require('assets/images/logos/php.png'),
-  react: require('assets/images/logos/react.png'),
-  nodejs: require('assets/images/logos/nodejs.png'),
 }
 
 const Facts = [
@@ -17,15 +16,20 @@ const Facts = [
     socity: { name: 'LiveMon', img: require('assets/images/logos/livemon.jpg') },
     desc: '12 mois en tant que développeur front. ( Ecole IPSSI Paris )',
     bulletPoints: [
-      'Intégration des mockups pour le dashboard',
-      'Intégration des mockups pour le website',
-      'Refonte responsive du website',
-      'Développement des features pour le dashboard',
+      'Intégration des visuels pour le tableau de bord',
+      'Intégration des visuels pour le site web',
+      'Refonte responsive du site web',
+      'Développement des fonctionnalités pour le tableau de bord',
     ],
-    technos: [Icons.javascript, Icons.react, Icons.nodejs],
+    technos: [
+      () => <ReactJs height={ICON_SIZE} width={ICON_SIZE} color="#61dafb" />,
+      () => <Javascript height={ICON_SIZE} width={ICON_SIZE} color="#f6de4a" />,
+      () => <ES6 height={ICON_SIZE} width={ICON_SIZE} color="#f6de4a" />,
+      () => <NodeJs height={ICON_SIZE} width={ICON_SIZE} color="#43853d" />,
+    ],
   },
   {
-    label: 'Master 1 Alternance - Développement web,mobile et logiciel',
+    label: 'Mastère 1 Alternance - Développement web,mobile et logiciel',
     dates: { start: '01/09/2017', stop: '31/08/2018' },
     socity: { name: 'Pandacraft', img: require('assets/images/logos/pandacraft.png') },
     desc: '12 mois en tant développeur fullstack. ( Ecole IPSSI Paris )',
@@ -36,7 +40,11 @@ const Facts = [
       'Responssable technique emailing (Bronto)',
       'responssable parc informatique',
     ],
-    technos: [Icons.magento, Icons.php, Icons.javascript],
+    technos: [
+      () => <Magento height={ICON_SIZE} width={ICON_SIZE} color="#EB6021" />,
+      () => <Php height={ICON_SIZE} width={ICON_SIZE} color="#8892BF" />,
+      () => <Javascript height={ICON_SIZE} width={ICON_SIZE} color="#61dafb" />,
+    ],
   },
   {
     label: 'Licence 3 Pro ATC Webmestre',
@@ -50,8 +58,7 @@ const Facts = [
     label: 'Licence 1/2 Informatique',
     dates: { start: '2015', stop: '2017' },
     socity: { name: 'Faculté de Caen Normandie', img: require('assets/images/logos/unicaen.png') },
-    desc:
-      'Licence 1 et licence 2 informatique parcour classiques, options web et traitement automatique des langues',
+    desc: 'Licence 1 et licence 2 informatique, options web et traitement automatique des langues',
     bulletPoints: [],
     technos: [],
   },
@@ -123,11 +130,7 @@ class Fact extends React.Component {
               </ul>
             )}
             {fact.technos.length > 0 && (
-              <div className="fact-desc-technos">
-                {fact.technos.map(t => (
-                  <img src={t} />
-                ))}
-              </div>
+              <div className="fact-desc-technos">{fact.technos.map(t => t())}</div>
             )}
           </div>
         </div>

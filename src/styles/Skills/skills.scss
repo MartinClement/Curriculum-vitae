@@ -19,18 +19,10 @@
       flex-direction: column;
       margin: $space-normal 0;
       align-items: center;
-      width: 50%;
+      width: calc(100% / 3);
 
-      .skill-circle-img {
-        width: 60px;
-        height: 60px;
-        //padding: $space-normal;
-        display: block;
-        border-radius: 50%;
+      svg {
         margin-bottom: $space-small;
-        background: $color-grey-dark;
-        // border: 8px solid $color-grey-dark;
-        // box-shadow: -5px 10px 10px $color-grey-dark;
       }
 
       .skill-circle-desc {
@@ -42,11 +34,16 @@
   .skills-bar-wrapper {
     flex-direction: column;
     padding: $space-large;
+    flex-wrap: wrap;
 
     .skill-bar {
       flex-direction: row;
       align-items: center;
       margin-bottom: $space-normal;
+
+      svg {
+        margin-right: $space-small;
+      }
 
       .skill-bar-label {
         font-size: $fs-normal;
@@ -92,11 +89,12 @@
 
     .skills-bar-wrapper {
       flex-direction: row;
-      margin-top: $space-large;
+      margin-top: $space-normal;
       padding: 0;
 
       .skill-bar {
-        margin: 0 $space-normal;
+        margin: $space-normal $space-normal;
+        width: 100px;
       }
     }
 

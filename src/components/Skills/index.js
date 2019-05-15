@@ -2,73 +2,117 @@ import React from 'react'
 import CircularProgressbar from 'react-circular-progressbar'
 import FadeIn from 'react-fade-in'
 
+import {
+  Symfony,
+  Javascript,
+  ReactJs,
+  Angular,
+  Git,
+  Photoshop,
+  Illustrator,
+  Html,
+  Sql,
+  Css,
+  Php,
+  NodeJs,
+  Magento,
+} from 'logos'
+
 import 'styles/Skills/skills.scss'
+
+const CIRCLE_ICON_SIZE = 50
+const BAR_ICON_SIZE = 25
 
 const SkillList = {
   circle: [
     {
-      label: 'JavaScript',
-      desc: 'Vanilla',
-      pct: '70',
-      img: require('assets/images/logos/javascript.png'),
-    },
-    {
       label: 'React',
-      pct: 60,
-      img:
-        'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
+      pct: 50,
+      logo: () => <ReactJs height={CIRCLE_ICON_SIZE} width={CIRCLE_ICON_SIZE} color="#61dafb" />,
     },
     {
-      label: 'HTML / CSS',
-      desc: 'sass, less',
-      pct: 40,
-      img: require('assets/images/logos/css.png'),
+      label: 'NodeJs',
+      pct: 50,
+      logo: () => <NodeJs height={CIRCLE_ICON_SIZE} width={CIRCLE_ICON_SIZE} color="#43853d" />,
     },
     {
       label: 'Symfony',
       desc: '3 et 4',
       pct: 50,
-      img: require('assets/images/logos/symfony.png'),
+      img: null,
+      logo: () => <Symfony height={CIRCLE_ICON_SIZE} width={CIRCLE_ICON_SIZE} />,
     },
     {
-      label: 'NodeJs',
+      label: 'PHP',
+      desc: '5.6 / 7.2',
       pct: 50,
-      img: require('assets/images/logos/nodejs.jpg'),
+      logo: () => <Php height={CIRCLE_ICON_SIZE} width={CIRCLE_ICON_SIZE} color="#8892BF" />,
+    },
+    {
+      label: 'JavaScript',
+      desc: 'Vanilla / ES6',
+      pct: '70',
+      logo: () => <Javascript height={CIRCLE_ICON_SIZE} width={CIRCLE_ICON_SIZE} color="#f6de4a" />,
+    },
+    {
+      label: 'HTML',
+      pct: 40,
+      logo: () => <Html height={CIRCLE_ICON_SIZE} width={CIRCLE_ICON_SIZE} color="#e44d32" />,
+    },
+    {
+      label: 'CSS',
+      desc: 'sass, less',
+      pct: 40,
+      logo: () => <Css height={CIRCLE_ICON_SIZE} width={CIRCLE_ICON_SIZE} color="#399ad6" />,
+    },
+    {
+      label: 'SQL',
+      pct: 60,
+      logo: () => <Sql height={CIRCLE_ICON_SIZE} width={CIRCLE_ICON_SIZE} />,
     },
   ],
   bar: [
     {
       label: 'Angular',
       pct: 40,
-      img: require('assets/images/logos/angular.png'),
+      logo: () => <Angular height={BAR_ICON_SIZE} width={BAR_ICON_SIZE} color="#de3432" />,
     },
     {
-      label: 'SQL / NoSQL',
-      desc: '+bdd relationnelle, orm',
-      pct: 70,
-      img: require('assets/images/logos/bdd.png'),
-    },
-    {
-      label: 'Suite Adobe',
+      label: 'Magento',
       pct: 40,
-      desc: 'Ps, Ai, Pr, Ae',
-      img: require('assets/images/logos/creativesuite.jpg'),
+      logo: () => <Magento height={BAR_ICON_SIZE} width={BAR_ICON_SIZE} color="#EB6021" />,
+    },
+    {
+      label: 'Git',
+      desc: 'commandes de base',
+      pct: 50,
+      logo: () => <Git height={BAR_ICON_SIZE} width={BAR_ICON_SIZE} color="#f05133" />,
+    },
+    {
+      label: 'Photoshop',
+      pct: 40,
+      logo: () => <Photoshop height={BAR_ICON_SIZE} width={BAR_ICON_SIZE} color="#00C8FF" />,
+    },
+    {
+      label: 'Illustrator',
+      pct: 40,
+      logo: () => <Illustrator height={BAR_ICON_SIZE} width={BAR_ICON_SIZE} color="#FF7C00" />,
     },
   ],
-  word: ['MySQL', 'NoSQL', 'Python', 'Haskell', 'MongoDB', 'MacOS', 'Windows', 'Linux'],
+  word: ['MySQL', 'NoSQL', 'MongoDB', 'Python', 'Haskell', 'Kotlin', 'MacOS', 'Windows', 'Linux'],
 }
 
 const SkillCircle = ({ skill }) => (
   <div className="skill-circle">
-    {/* <div className="skill-label">{skill.label}</div> */}
-    <img className="skill-circle-img" src={skill.img} />
+    {skill.logo && skill.logo()}
     <div className="skill-circle-desc">{skill.desc ? skill.desc : '-'}</div>
   </div>
 )
 
 const SkillBar = ({ skill }) => (
   <div className="skill-bar">
-    <img className="skill-bar-img" src={skill.img} />
+    {skill.img && <img className="skill-bar-img" src={skill.img} />}
+    {skill.logo && skill.logo()}
     <div className="skill-bar-label">{skill.label}</div>
   </div>
 )

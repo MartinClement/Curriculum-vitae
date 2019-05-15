@@ -82,9 +82,12 @@
         .fact-desc-technos {
           flex-direction: row;
           margin-top: $space-normal;
+          background: $color-grey-dark;
+          width: fit-content;
+          padding: $space-small;
+          border-radius: 5px;
 
-          img {
-            height: 20px;
+          svg {
             margin-right: $space-normal;
           }
         }
