@@ -1,43 +1,18 @@
 version: 2
 jobs:
-  tests-build:
+  tests-build-run:
     working_directory: ~/Curriculum-vitae
     docker:
       - image: circleci/node:latest
     steps:
       - checkout
-      # - restore_cache:
-      #   name: Restore Yarn Cache
-      #   keys:
-      #     - yarn-packages-{{ checksum "yarn.lock" }}
       - run: yarn install
-        # name: Install Dependencies
-        # command: yarn install --frozen-lockfile
-      # - save_cache:
-      #   name: Save Yarn Package Cache
-      #   key: yarn-packages-{{ checksum "yarn.lock" }}
-      #   paths:
-      #     - ~/.cache/yarn
       - run: yarn lint
-        # name: Lint the CV
-        # command: yarn lint
       - run: yarn build
-        # name: Build Prod
-        # command: production yarn build
-  deploy-prod:
-    working_directory: ~/Curriculum-vitae
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - run:
-        name: Deploy on surge
-        command: surge --project ./dist --domain clement-martin.surge.sh
+      - run: surge --project ./dist --domain clement-martin.surge.sh
 
 workflows:
   version: 2
   build-deploy:
     jobs:
-      - tests-build
-      - deploy-prod:
-        requires:
-          - tests-build
+      - tests-build-run
