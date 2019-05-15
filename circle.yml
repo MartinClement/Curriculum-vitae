@@ -6,6 +6,9 @@ jobs:
       - image: circleci/node:lastest
     steps:
       - checkout
+      - restore_cache:
+        name: Restore Yarn Package Cache
+        key: yarn-packages-{{ checksum "yarn.lock" }}
       - run:
         name: Install Dependencies
         command: yarn install
@@ -15,7 +18,6 @@ jobs:
       - run:
         name: Build Prod
         command: production yarn build
-
   deploy-prod:
     working_directory: ~/Curriculum-vitae
     docker:
