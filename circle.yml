@@ -34,7 +34,7 @@ workflows:
   tests-build_deploy-prod:
     jobs:
       # - tests-build
-      - deploy-prod:
+      - deploy-prod
         # requires:
         #   - tests-build
         # filters:
