@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: yarn install
-      - run: yarn lint
+      # - run: yarn lint
       - run: yarn build
       - run: surge --project ./dist --domain clement-martin.surge.sh
 
