@@ -16,6 +16,6 @@
   },
   "plugins": ["react"],
   "rules": {
-    "no-console": "on"
+    "no-console": "1"
   }
 }
