@@ -120,18 +120,18 @@ const SkillBar = ({ skill }) => (
 const Skills = () => (
   <div className="skills-wrapper">
     <div className="skills-circle-wrapper">
-      {SkillList.circle.map(skill => (
-        <SkillCircle skill={skill} />
+      {SkillList.circle.map((skill, k) => (
+        <SkillCircle key={k} skill={skill} />
       ))}
     </div>
     <div className="skills-bar-wrapper">
-      {SkillList.bar.map(skill => (
-        <SkillBar skill={skill} />
+      {SkillList.bar.map((skill, k) => (
+        <SkillBar key={k} skill={skill} />
       ))}
     </div>
     <div className="skills-word-wrapper">
-      {SkillList.word.map(skill => (
-        <span className="skill-word">{`${skill}, `}</span>
+      {SkillList.word.map((skill, k) => (
+        <span key={k} className="skill-word">{`${skill}, `}</span>
       ))}
     </div>
   </div>

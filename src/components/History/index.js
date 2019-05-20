@@ -22,10 +22,10 @@ const Facts = [
       'Développement des fonctionnalités pour le tableau de bord',
     ],
     technos: [
-      () => <ReactJs height={ICON_SIZE} width={ICON_SIZE} color="#61dafb" />,
-      () => <Javascript height={ICON_SIZE} width={ICON_SIZE} color="#f6de4a" />,
-      () => <ES6 height={ICON_SIZE} width={ICON_SIZE} color="#f6de4a" />,
-      () => <NodeJs height={ICON_SIZE} width={ICON_SIZE} color="#43853d" />,
+      k => <ReactJs key={k} height={ICON_SIZE} width={ICON_SIZE} color="#61dafb" />,
+      k => <Javascript key={k} height={ICON_SIZE} width={ICON_SIZE} color="#f6de4a" />,
+      k => <ES6 key={k} height={ICON_SIZE} width={ICON_SIZE} color="#f6de4a" />,
+      k => <NodeJs key={k} height={ICON_SIZE} width={ICON_SIZE} color="#43853d" />,
     ],
   },
   {
@@ -41,9 +41,9 @@ const Facts = [
       'responssable parc informatique',
     ],
     technos: [
-      () => <Magento height={ICON_SIZE} width={ICON_SIZE} color="#EB6021" />,
-      () => <Php height={ICON_SIZE} width={ICON_SIZE} color="#8892BF" />,
-      () => <Javascript height={ICON_SIZE} width={ICON_SIZE} color="#61dafb" />,
+      k => <Magento key={k} height={ICON_SIZE} width={ICON_SIZE} color="#EB6021" />,
+      k => <Php key={k} height={ICON_SIZE} width={ICON_SIZE} color="#8892BF" />,
+      k => <Javascript key={k} height={ICON_SIZE} width={ICON_SIZE} color="#61dafb" />,
     ],
   },
   {
@@ -87,7 +87,6 @@ class Fact extends React.Component {
 
   handleFadeIn = (entries, observer) => {
     entries.forEach(el => {
-      console.log(el)
       if (el.isIntersecting) {
         el.target.style.opacity = 1
       }
@@ -124,13 +123,13 @@ class Fact extends React.Component {
             </div>
             {fact.bulletPoints.length > 0 && (
               <ul className="fact-desc-bulletpoints">
-                {fact.bulletPoints.map(f => (
-                  <li>{f}</li>
+                {fact.bulletPoints.map((f, k) => (
+                  <li key={k}>{f}</li>
                 ))}
               </ul>
             )}
             {fact.technos.length > 0 && (
-              <div className="fact-desc-technos">{fact.technos.map(t => t())}</div>
+              <div className="fact-desc-technos">{fact.technos.map((t, k) => t(k))}</div>
             )}
           </div>
         </div>
@@ -141,8 +140,8 @@ class Fact extends React.Component {
 
 const History = () => (
   <div className="history-wrapper">
-    {Facts.map(f => (
-      <Fact fact={f} />
+    {Facts.map((f, k) => (
+      <Fact key={k} fact={f} />
     ))}
   </div>
 )

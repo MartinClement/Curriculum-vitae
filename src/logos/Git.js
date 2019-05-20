@@ -2,7 +2,7 @@ import React from 'react'
 
 export default props => (
   <svg viewBox="0 0 112 112" fill="none" {...props}>
-    <circle cx="56" cy="56" r="54.5" fill="none" stroke={props.color || 'white'} stroke-width="3" />
+    <circle cx="56" cy="56" r="54.5" fill="none" stroke={props.color || 'white'} strokeWidth="3" />
     <rect
       x="31.0124"
       y="24"
