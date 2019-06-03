@@ -1,6 +1,5 @@
 import React from 'react'
 import CircularProgressbar from 'react-circular-progressbar'
-import FadeIn from 'react-fade-in'
 
 import {
   Symfony,

@@ -76,19 +76,28 @@
           li {
             color: $color-grey;
             margin-left: $space-large;
+
+            &:last-child {
+              margin-bottom: $space-normal;
+            }
           }
         }
 
         .fact-desc-technos {
           flex-direction: row;
+          align-items: center;
           margin-top: $space-normal;
           background: $color-grey-dark;
           width: fit-content;
           padding: $space-small;
           border-radius: 5px;
 
+          div,
           svg {
-            margin-right: $space-normal;
+            font-size: 13px;
+            &:not(:last-child) {
+              margin-right: $space-normal;
+            }
           }
         }
       }

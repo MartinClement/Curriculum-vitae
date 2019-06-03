@@ -1,7 +1,7 @@
 import React from 'react'
 
 import 'styles/History/history.scss'
-import { ReactJs, Javascript, NodeJs, Php, Magento, ES6 } from 'logos'
+import { ReactJs, Javascript, NodeJs, Php, Magento, ES6, Html, Css, Symfony } from 'logos'
 
 const ICON_SIZE = 20
 
@@ -35,31 +35,75 @@ const Facts = [
     desc: '12 mois en tant développeur fullstack. ( Ecole IPSSI Paris )',
     bulletPoints: [
       'Développement des modules magento pour la plateforme e-commerce',
-      'Intégration des visuels pour les partenarias',
-      'Synchronisation du catalogue de produit avec un gestionnaire de flux ( synchronisation Facebook, Amazon )',
-      'Responssable technique emailing (Bronto)',
-      'responssable parc informatique',
+      'Intégration des visuels pour les partenariats',
+      'Synchronisation du catalogue de produits avec un gestionnaire de flux ( synchronisation Facebook, Amazon )',
+      'Responsable technique emailing (Bronto)',
+      'Responsable du parc informatique',
     ],
     technos: [
       k => <Magento key={k} height={ICON_SIZE} width={ICON_SIZE} color="#EB6021" />,
       k => <Php key={k} height={ICON_SIZE} width={ICON_SIZE} color="#8892BF" />,
-      k => <Javascript key={k} height={ICON_SIZE} width={ICON_SIZE} color="#61dafb" />,
+      k => <Javascript key={k} height={ICON_SIZE} width={ICON_SIZE} color="#f6de4a" />,
     ],
   },
   {
     label: 'Licence 3 Pro ATC Webmestre',
     dates: { start: '2017', stop: '2018' },
     socity: { name: 'Faculté de Caen Normandie', img: require('assets/images/logos/unicaen.png') },
-    desc: 'Licence 3 parcour professionel spécialité développement web',
-    bulletPoints: [],
-    technos: [],
+    desc: 'Licence 3 parcours professionel spécialité développement web',
+    bulletPoints: [
+      "Projet tutoré : Création d'un site de gestion de tournoi de jeu video (Symfony 3)",
+      'Pattern MVC',
+      'Methode Agile',
+      'Printemps Agile 2017',
+    ],
+    technos: [
+      k => <Html key={k} height={ICON_SIZE} width={ICON_SIZE} color="#e44d32" />,
+      k => <Css key={k} height={ICON_SIZE} width={ICON_SIZE} color="#399ad6" />,
+      k => <Javascript key={k} height={ICON_SIZE} width={ICON_SIZE} color="#f6de4a" />,
+      k => <Php key={k} height={ICON_SIZE} width={ICON_SIZE} color="#8892BF" />,
+      k => <Symfony key={k} height={ICON_SIZE} width={ICON_SIZE} />,
+    ],
   },
   {
     label: 'Licence 1/2 Informatique',
     dates: { start: '2015', stop: '2017' },
     socity: { name: 'Faculté de Caen Normandie', img: require('assets/images/logos/unicaen.png') },
-    desc: 'Licence 1 et licence 2 informatique, options web et traitement automatique des langues',
-    bulletPoints: [],
+    desc: 'Première et deuxième année de Licence Informatique',
+    bulletPoints: [
+      'Option traitement automatique des langues',
+      'Option documents structurés et architectures orientées services',
+      'Option imagerie',
+      'Système UNIX',
+      "Projet annuel : Développement d'un manic shooter en Python3 (Object)",
+    ],
+    technos: [
+      k => <Html key={k} height={ICON_SIZE} width={ICON_SIZE} color="#e44d32" />,
+      k => <Css key={k} height={ICON_SIZE} width={ICON_SIZE} color="#399ad6" />,
+      k => <Javascript key={k} height={ICON_SIZE} width={ICON_SIZE} color="#f6de4a" />,
+      k => <div key={k}>Python3</div>,
+      k => <div key={k}>Haskell</div>,
+    ],
+  },
+  {
+    label: 'Terminal S',
+    dates: { start: 2012, stop: 2013 },
+    socity: { name: 'Lycée Victor Grignard, Cherbourg en Cotentin' },
+    desc: 'Terminale filière scientifique.',
+    bulletPoints: ['Spécialité "Informatique et science du numérique" (ISN)', 'Mention assez-bien'],
+    technos: [
+      k => <Html key={k} height={ICON_SIZE} width={ICON_SIZE} color="#e44d32" />,
+      k => <Css key={k} height={ICON_SIZE} width={ICON_SIZE} color="#399ad6" />,
+    ],
+  },
+  {
+    label: 'Personnel',
+    desc: 'Hobbies et mobilité',
+    bulletPoints: [
+      "Centres d'intérêt : Programmation, sport, musique, E-sport",
+      'Hobbies : Escalade, Roller, Longboard, Rubgy, Musculation, Jeux vidéos',
+      'Permis B',
+    ],
     technos: [],
   },
 ]
@@ -100,15 +144,21 @@ class Fact extends React.Component {
       <div className="fact-wrapper">
         <div className="fact-label">{fact.label}</div>
         <div className="fact-infos">
-          <div className="fact-infos-socity-name">{fact.socity.name}</div>
+          {fact.socity && <div className="fact-infos-socity-name">{fact.socity.name}</div>}
           <div className="fact-infos-dates">
-            {fact.dates.start}
-            <span className="date-arrow">-></span>
-            {fact.dates.stop}
+            {fact.dates ? (
+              <>
+                {fact.dates.start}
+                <span className="date-arrow">-></span>
+                {fact.dates.stop}
+              </>
+            ) : (
+              <>-</>
+            )}
           </div>
         </div>
         <div className="fact-desc-wrapper">
-          <img className="fact-socity-img" src={fact.socity.img} />
+          {fact.img && <img className="fact-socity-img" src={fact.socity.img} />}
           <div
             className="fact-desc-infos"
             style={{
