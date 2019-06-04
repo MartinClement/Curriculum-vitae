@@ -64,7 +64,7 @@ const Facts = [
     socity: { name: 'Faculté de Caen Normandie', img: require('assets/images/logos/unicaen.png') },
     desc: 'Licence 3 parcours professionel spécialité développement web',
     bulletPoints: [
-      "Projet tutoré : Création d'un site de gestion de tournoi de jeu video (Symfony 3)",
+      "Projet tutoré : Création d'un site de gestion de tournoi de jeux videos (Symfony 3)",
       'Pattern MVC',
       'Methode Agile',
       'Printemps Agile 2017',
