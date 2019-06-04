@@ -41,7 +41,7 @@ const Facts = [
     ],
   },
   {
-    label: 'Mastère 1 Alternance - Développement web,mobile et logiciel',
+    label: 'Mastère 1 Alternance - Développement web, mobile et logiciel',
     dates: { start: '01/09/2017', stop: '31/08/2018' },
     socity: { name: 'Pandacraft', img: require('assets/images/logos/pandacraft.png') },
     desc: '12 mois en tant développeur fullstack. ( Ecole IPSSI Paris )',
@@ -112,7 +112,7 @@ const Facts = [
     label: 'Personnel',
     desc: 'Hobbies et mobilité',
     bulletPoints: [
-      "Centres d'intérêt : Programmation, sport, musique, E-sport",
+      "Centres d'intérêt : Programmation, Sport, Musique, E-sport",
       'Hobbies : Escalade, Roller, Longboard, Rubgy, Musculation, Jeux vidéos',
       'Permis B',
     ],
