@@ -1,7 +1,19 @@
 import React from 'react'
 
 import 'styles/History/history.scss'
-import { ReactJs, Javascript, NodeJs, Php, Magento, ES6, Html, Css, Symfony } from 'logos'
+import {
+  ReactJs,
+  Javascript,
+  NodeJs,
+  Php,
+  Magento,
+  ES6,
+  Html,
+  Css,
+  Symfony,
+  Haskell,
+  Python,
+} from 'logos'
 
 const ICON_SIZE = 20
 
@@ -81,14 +93,14 @@ const Facts = [
       k => <Html key={k} height={ICON_SIZE} width={ICON_SIZE} color="#e44d32" />,
       k => <Css key={k} height={ICON_SIZE} width={ICON_SIZE} color="#399ad6" />,
       k => <Javascript key={k} height={ICON_SIZE} width={ICON_SIZE} color="#f6de4a" />,
-      k => <div key={k}>Python3</div>,
-      k => <div key={k}>Haskell</div>,
+      k => <Python key={k} height={ICON_SIZE} width={ICON_SIZE} />,
+      k => <Haskell key={k} height={ICON_SIZE} width={ICON_SIZE} color="#8e508a" />,
     ],
   },
   {
     label: 'Terminal S',
     dates: { start: 2012, stop: 2013 },
-    socity: { name: 'Lycée Victor Grignard, Cherbourg en Cotentin' },
+    socity: { name: 'Lycée Victor Grignard, Cherbourg' },
     desc: 'Terminale filière scientifique.',
     bulletPoints: ['Spécialité "Informatique et science du numérique" (ISN)', 'Mention assez-bien'],
     technos: [
@@ -158,7 +170,9 @@ class Fact extends React.Component {
           </div>
         </div>
         <div className="fact-desc-wrapper">
-          {fact.img && <img className="fact-socity-img" src={fact.socity.img} />}
+          {fact.socity && fact.socity.img && (
+            <img className="fact-socity-img" src={fact.socity.img} />
+          )}
           <div
             className="fact-desc-infos"
             style={{
