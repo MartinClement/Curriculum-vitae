@@ -62,9 +62,9 @@ const Facts = [
     label: 'Licence 3 Pro ATC Webmestre',
     dates: { start: '2017', stop: '2018' },
     socity: { name: 'Faculté de Caen Normandie', img: require('assets/images/logos/unicaen.png') },
-    desc: 'Licence 3 parcours professionel spécialité développement web',
+    desc: 'Licence 3 parcours professionnel spécialité développement web',
     bulletPoints: [
-      "Projet tutoré : Création d'un site de gestion de tournoi de jeux videos (Symfony 3)",
+      "Projet tutoré : Création d'un site de gestion de tournois de jeux videos (Symfony 3)",
       'Pattern MVC',
       'Methode Agile',
       'Printemps Agile 2017',
